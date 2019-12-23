@@ -1,4 +1,8 @@
 #include "Math.h"
+#include <iostream>
+
+using std::cout;
+using std::cin;
 
 double power(double base, int exponent) // definition
 {
@@ -8,4 +12,10 @@ double power(double base, int exponent) // definition
 		result = result * base;
 	}
 	return result;
+}
+
+void print_pow(double base, int exponent)
+{
+	double myPower = power(base, exponent);
+	cout << base << " raised to the " << exponent << " power is " << myPower << std::endl;
 }
