@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cmath>
+#include "Math.h"
 
 using std::cout;
 using std::cin;
@@ -11,6 +11,6 @@ int main()
 	cin >> base;
 	cout << "What is the exponent?: ";
 	cin >> exponent;
-	double power = pow(base, exponent);
-	cout << power << std::endl;
+	double myPower = power(base, exponent);
+	cout << myPower << std::endl;
 }
