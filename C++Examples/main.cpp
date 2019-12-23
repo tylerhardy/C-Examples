@@ -5,6 +5,34 @@
 #include <ctime>
 #include <vector>
 
+void save_score(int guess_count)
+{
+	std::ifstream input("best_score.txt");
+	if (!input.is_open())
+	{
+		std::cout << "Unable to read file" << std::endl;
+		return;
+	}
+
+	int best_score;
+	input >> best_score;
+
+	std::ofstream output("best_score.txt");
+	if (!output.is_open())
+	{
+		std::cout << "Unable to write to file" << std::endl;
+		return;
+	}
+
+	if (guess_count < best_score)
+	{
+		output << guess_count;
+	}
+	else
+	{
+		output << best_score;
+	}
+}
 
 void print_vector(std::vector<int>& vector)
 {
@@ -44,31 +72,8 @@ void play_game()
 			std::cout << "You guess too high, try again: " << std::endl;
 		}
 	}
-	std::ifstream input("best_score.txt");
-	if (!input.is_open())
-	{
-		std::cout << "Unable to read file" << std::endl;
-		return;
-	}
-
-	int best_score;
-	input >> best_score;
-
-	std::ofstream output("best_score.txt");
-	if (!output.is_open())
-	{
-		std::cout << "Unable to write to file" << std::endl;
-		return;
-	}
-
-	if (count < best_score)
-	{
-		output << count;
-	}
-	else
-	{
-		output << best_score;
-	}
+	
+	save_score(count);
 
 	print_vector(guesses);
 }
