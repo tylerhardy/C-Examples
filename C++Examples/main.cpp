@@ -1,5 +1,6 @@
 #include <iostream>
 #include <climits>
+#include <float.h>
 using namespace std;
 
 int main() 
@@ -71,6 +72,84 @@ int main()
 
 	cout << "Number of bits for [" << typeid(charVar).name() << "]: Max -> [" << CHAR_MAX << "], Min -> [" << CHAR_MIN << "] Unsigned Max -> [" << UCHAR_MAX << "]" << endl;
 	// Number of bits for [char]: Max -> [127], Min -> [-128] Unsigned Max -> [255]
+
+	
+	// BOOL
+
+	bool boolVar;						// 
+	boolVar = false;
+	cout << boolVar << endl;
+	cout << std::boolalpha << boolVar << endl;
+	// 0
+	// false
+
+	boolVar = true;
+	cout << std::noboolalpha << boolVar << endl;
+	cout << std::boolalpha << boolVar << endl;
+	// 1
+	// true
+
+
+	
+	// DOUBLE (Floating Point Numbers)
+
+	float floatVar;
+	double doubleVar;
+	long double longDoubleVar;
+	
+	cout << "Size of [" << typeid(floatVar).name() << "] is: [" << sizeof(floatVar) * 8 << "] bits, or [" << sizeof(floatVar) << "] bytes" << endl;
+	cout << "Size of [" << typeid(doubleVar).name() << "] is: [" << sizeof(doubleVar) * 8 << "] bits, or [" << sizeof(doubleVar) << "] bytes" << endl;
+	cout << "Size of [" << typeid(longDoubleVar).name() << "] is: [" << sizeof(longDoubleVar) * 8 << "] bits, or [" << sizeof(longDoubleVar) << "] bytes" << endl;
+	// Size of [float] is: [32] bits, or [4] bytes
+	// Size of [double] is: [64] bits, or [8] bytes
+	// Size of [long double] is: [64] bits, or [8] bytes
+
+
+	cout << "Number of bits for [" << typeid(floatVar).name() << "]: Max -> [" << FLT_MAX << "], Min -> [" << FLT_MIN << "] Unsigned Max -> [" << FLT_MAX << "]" << endl;
+	cout << "Number of bits for [" << typeid(doubleVar).name() << "]: Max -> [" << DBL_MAX << "], Min -> [" << DBL_MIN << "]" << endl;
+	cout << "Number of bits for [" << typeid(longDoubleVar).name() << "]: Max -> [" << LDBL_MAX << "], Min -> [" << LDBL_MIN << "]" << endl;
+	// Number of bits for [float]: Max -> [3.40282e+38], Min -> [1.17549e-38] Unsigned Max -> [3.40282e+38]
+	// Number of bits for [double]: Max -> [1.79769e+308], Min -> [2.22507e-308]
+	// Number of bits for [long double]: Max -> [1.79769e+308], Min -> [2.22507e-308]
+
+
+	float a = 10.0 / 3;
+	a = a * 1000000000000;
+	cout << a << endl;
+	// 3.33333e+12
+	
+	cout << std::fixed << a << endl;
+	// 3333333188608.000000
+
+
+	double b = 10.0 / 3;
+	b = b * 1000000000000;
+
+	cout << std::fixed << b << endl;
+	// 3333333333333.333496
+
+	cout << FLT_DIG << endl;
+	cout << DBL_DIG << endl;
+	cout << LDBL_DIG << endl;
+	// 6 - Trusted up to 6 places
+	// 15 - Trusted up to 15 places
+	// 15 - Trusted up to 15 places
+
+	
+	
+	// CONSTANTS
+
+	int x = 5; // literal constant
+
+	const int y = 5; // symbolic constant, creates a read-only number
+	enum { i = 100};	// enum
+	#define J 8			// macro
+
+	cout << x << y << i << J << endl;
+	//551008
+
+
+
 
 
 }
