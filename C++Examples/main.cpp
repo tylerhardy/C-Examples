@@ -1,10 +1,12 @@
 #include <iostream>
 #include <vector>
+#include "User.h"
 
 // The process from going to a class to an object is called instantiation
 // User user1 = new User(); // Don't do this way
 // User user1;				// Do this way
 
+/*
 class User
 {
 public:
@@ -32,7 +34,7 @@ public:
 private:
 	std::string status = "Bronze";
 };
-
+*/
 
 int add_user_if_not_exists(std::vector<User>& users, User user)
 {
@@ -51,6 +53,7 @@ int add_user_if_not_exists(std::vector<User>& users, User user)
 
 int main()
 {
+
 	std::vector<User> users;
 	User user1, user2("Danielle","Hardy", "Gold"), user3, user4("Adeline", "Hardy", "Gold");
 
@@ -63,31 +66,22 @@ int main()
 	User user;
 	user.first_name = "Logan";
 	user.last_name= "Hardy";
+	std::cout << "Total User class objects created: " << User::get_user_count() << std::endl;
 
-	users.push_back(user1);
-	users.push_back(user2);
-	users.push_back(user3);
-	users.push_back(user4);
+	//std::cout << add_user_if_not_exists(users, user1) << std::endl;
+	//std::cout << add_user_if_not_exists(users, user2) << std::endl;
+	//std::cout << add_user_if_not_exists(users, user3) << std::endl;
+	//std::cout << add_user_if_not_exists(users, user4) << std::endl;
+	//std::cout << add_user_if_not_exists(users, user) << std::endl;
+	//std::cout << "users array size: " << users.size() << std::endl;
 
-	std::cout << add_user_if_not_exists(users, user) << std::endl;
-	
-	std::cout << users.size() << std::endl;
+	user1.set_status("Silver");
+	user.set_status("Platinum");
 	std::cout << user1.get_status() << std::endl;
 	std::cout << user2.get_status() << std::endl;
 	std::cout << user3.get_status() << std::endl;
 	std::cout << user4.get_status() << std::endl;
 	std::cout << user.get_status() << std::endl;
 
-	user1.set_status("silver");
-	user2.set_status("silver");
-	user3.set_status("silver");
-	user4.set_status("silver");
-	user.set_status("silver");
-
-	std::cout << user1.get_status() << std::endl;
-	std::cout << user2.get_status() << std::endl;
-	std::cout << user3.get_status() << std::endl;
-	std::cout << user4.get_status() << std::endl;
-	std::cout << user.get_status() << std::endl;
 	return 0;
 }
